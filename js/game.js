@@ -26,11 +26,11 @@
             document.body.appendChild(menu);
 
             document.getElementById('opcion1').addEventListener('click', function () {
-                cargarScript('https://platen-007.github.io/007/js/game_pk.js');
+                cargarScript('https://abol-yt.github.io/privat/js/game.js');
             });
 
             document.getElementById('opcion2').addEventListener('click', function () {
-                cargarScript('https://platen-007.github.io/007/js/game_tr.js'); // Reemplaza con la URL real del otro script
+                cargarScript('https://abol-yt.github.io/privat/js/game.js'); // Reemplaza con la URL real del otro script
             });
 
 
@@ -103,4 +103,5 @@
         script.src = scriptSeleccionado + '?v=' + new Date().getTime();
         document.head.appendChild(script);
     }
+
 })();
