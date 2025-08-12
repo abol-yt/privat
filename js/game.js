@@ -413,7 +413,7 @@ const ctx = {
     amarelo: new PIXI.TextStyle({
       align: "center",
       fill: "#344752",
-      fontSize: 0x24,
+      fontSize: 9,
       lineJoin: "round",
       stroke: "#FF8C00",
       strokeThickness: 1,
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
