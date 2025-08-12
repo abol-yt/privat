@@ -449,7 +449,7 @@ const ctx = {
   },
 };
 ctx.clock = PIXI.Sprite.fromImage(
-  "https://timmapwormate.com/images/store/clock.png"
+  "https://asserts.wormworld.io/images/clock.png"
 );
 ctx.clock.width = 100;
 ctx.clock.height = 100;
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
