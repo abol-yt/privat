@@ -368,7 +368,7 @@ var StoreSkinID = $("#idReplaceSkin");
 const ctx = {
   fontStyle: {
     name: new PIXI.TextStyle({
-      fill: "#FFFF00",
+      fill: "#f79425",
       fontSize: 12,
       lineJoin: "round",
       stroke: "#EFFA45",
@@ -388,7 +388,7 @@ const ctx = {
     }),
     morado: new PIXI.TextStyle({
       align: "center",
-      fill: "#FFA500",
+      fill: "#FFFFFF",
       fontSize: 10,
       lineJoin: "round",
       stroke: "#FAA845",
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
