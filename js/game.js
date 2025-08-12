@@ -410,7 +410,7 @@ const ctx = {
       fontWeight: "bold",
       wordWrap: true,
     }),
-    amarelo: new PIXI.TextStyle({
+    amarillo: new PIXI.TextStyle({
       align: "center",
       fill: "#344752",
       fontSize: 9,
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
