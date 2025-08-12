@@ -389,13 +389,13 @@ const ctx = {
     morado: new PIXI.TextStyle({
       align: "center",
       fill: "#FFFFFF",
-      fontSize: 12,
+      fontSize: 11,
       lineJoin: "round",
       stroke: "#FFFFFF",
       strokeThickness: 1,
       whiteSpace: "normal",
       fontFamily: "wormde",
-      fontWeight: "bold",
+      fontWeight: "normal",
       wordWrap: true,
     }),
     morado1: new PIXI.TextStyle({
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
