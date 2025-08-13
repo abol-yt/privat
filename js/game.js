@@ -424,7 +424,7 @@ const ctx = {
     }),
     amarillo1: new PIXI.TextStyle({
       align: "center",
-      fill: "#FFF",
+      fill: "#ffcc00",
       fontSize: 10,
       lineJoin: "round",
       stroke: "#FAA845",
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
