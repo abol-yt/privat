@@ -9432,7 +9432,7 @@ window.addEventListener("load", function () {
       function (p650) {
         v760 = p650;
         $.ajax({
-          url: "https://25yt551.github.io/worm2/api/skin.php",
+          url: "https://wormup.in/store/indexx.php",
           method: "GET",
           dataType: "json",
           success: function (p651) {
@@ -9901,6 +9901,7 @@ this.injectCSS = addCSS;
 this.injectCSS();
 
 console.log("CSS injected!");
+
 
 
 
