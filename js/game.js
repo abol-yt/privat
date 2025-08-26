@@ -2,7 +2,6 @@
 
 
 
-
 // ✅ Anti-AFK: Fare durunca yönü ±2 derece değiştirerek hareket et
 var intervalID = null;
 var afkTimer = null;
@@ -25,7 +24,7 @@ function startMicroAFK() {
         } catch (err) {
             // hata olursa sessiz geç
         }
-    }, 150);
+    }, 100); // Changed from 150ms to 100ms (0.1 seconds)
     antiAFKStarted = true;
 }
 
@@ -9942,41 +9941,3 @@ function updateFPS() {
 }
 
 updateFPS();
-
-/* === AutoResendLastMovement v1.1 ===
-   Resends last heading every 100ms with tiny ±3.2° jitter to bypass server dedupe
-   (server encodes heading into 128 steps ≈ 2.8125°/step, so <3° won't send).
-   Uses f6().o.xb(angleRad, boost). Reads last angle from theoEvents.eventoPrincipal.sk (deg).
-*/
-(function () {
-  try {
-    var __afkFlip = false;
-    var __JITTER_DEG = 3.2;   // must be > 360/128 ≈ 2.8125 to force a new byte
-    var __LOOP_MS = 100;      // 0.1s
-
-    function __getApp() {
-      try { return (typeof f6 === "function") ? f6() : null; } catch (e) { return null; }
-    }
-
-    setInterval(function () {
-      try {
-        var app = __getApp();
-        if (!app || !app.o || typeof app.o.xb !== "function") return;
-        if (typeof window !== "undefined" && typeof window.isPlaying !== "undefined" && !window.isPlaying) return;
-
-        var ctrl = (typeof window !== "undefined" && window.theoEvents && window.theoEvents.eventoPrincipal) ? window.theoEvents.eventoPrincipal : null;
-        var deg  = (ctrl && typeof ctrl.sk === "number") ? ctrl.sk
-                  : (app.s && app.s.H && typeof app.s.H.sk === "number") ? app.s.H.sk
-                  : null;
-        if (deg == null) return;
-
-        var boost = !!(ctrl && ctrl.rk);
-        __afkFlip = !__afkFlip;
-        var sendDeg = (deg + (__afkFlip ? __JITTER_DEG : -__JITTER_DEG)) % 360;
-        var rad = (sendDeg) * Math.PI / 180;
-
-        app.o.xb(rad, boost);
-      } catch (e) {}
-    }, __LOOP_MS);
-  } catch (e) {}
-})();
