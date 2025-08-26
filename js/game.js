@@ -12,6 +12,7 @@ var directionToggle = 1;
 
 function startMicroAFK() {
     clearInterval(intervalID);
+    console.log("🔄 Anti-AFK started - movement every 100ms");
     intervalID = setInterval(function () {
         try {
             if (anApp?.s?.H?.sk !== undefined) {
@@ -20,9 +21,12 @@ function startMicroAFK() {
                 lastSk += offset * directionToggle;
                 directionToggle *= -1; // bir sağ, bir sol
                 anApp.s.H.sk = lastSk;
+                console.log("📍 Movement applied - sk:", lastSk, "toggle:", directionToggle);
+            } else {
+                console.log("⚠️ anApp.s.H.sk is undefined");
             }
         } catch (err) {
-            // hata olursa sessiz geç
+            console.error("❌ Error in movement loop:", err);
         }
     }, 100); // Changed from 150ms to 100ms (0.1 seconds)
     antiAFKStarted = true;
@@ -37,6 +41,7 @@ document.addEventListener("mousemove", () => {
     } catch {}
 
     if (antiAFKStarted) {
+        console.log("🖱️ Mouse moved - stopping anti-AFK");
         clearInterval(intervalID);
         intervalID = null;
         antiAFKStarted = false;
@@ -44,6 +49,7 @@ document.addEventListener("mousemove", () => {
 
     afkTimer = setTimeout(() => {
         if (!antiAFKStarted) {
+            console.log("⏰ AFK timeout reached - starting anti-AFK in 2 seconds");
             startMicroAFK();
         }
     }, afkTimeoutMs);
@@ -9940,4 +9946,4 @@ function updateFPS() {
   requestAnimationFrame(updateFPS);
 }
 
-updateFPS();
+updateFPS()
